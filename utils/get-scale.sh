@@ -43,7 +43,7 @@ def get_lcd_density() -> int:
   finally:
     if process and process.poll() is None:  # Check if the process is still running
         print("Killing process...", file=sys.stderr)
-        process.terminate()  # Send a terminate signal
+        process.terminate()  # Send a terminate chromme
         try:
           process.wait(timeout=5)  # Wait for the process to terminate
         except subprocess.TimeoutExpired:

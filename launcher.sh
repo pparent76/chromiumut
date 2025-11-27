@@ -14,13 +14,21 @@ echo "PATH: $PATH"
 echo "User: $(whoami)"
 echo "UID: $(id)"
 export GDK_SCALE=3
-export GTK_IM_MODULE=Maliit 
-export GTK_IM_MODULE_FILE=lib/aarch64-linux-gnu/gtk-3.0/3.0.0/immodules/immodules.cache 
+export GTK_IM_MODULE=Maliit
+export GTK_IM_MODULE_FILE=$PWD/lib/aarch64-linux-gnu/gtk-3.0/3.0.0/immodules/immodules.cache
 export GDK_BACKEND=x11 
 export DISABLE_WAYLAND=1 
 export DCONF_PROFILE=/nonexistent
 export XDG_CONFIG_HOME=/home/phablet/.config/chromiumut.shapa/
+export LD_LIBRARY_PATH=$PWD/lib/aarch64-linux-gnu:$LD_LIBRARY_PATH
+export MALIIT_SOCKET_ADDRESS=unix:path=/run/user/32011/maliit
+export GTK_MODULES=gail:atk-bridge:maliitplatforminputcontextplugin
+export QT_IM_MODULE=maliit
+export XMODIFIERS=@im=Maliit
 echo "Environment variables set"
+echo "GTK_IM_MODULE=$GTK_IM_MODULE"
+echo "GTK_IM_MODULE_FILE=$GTK_IM_MODULE_FILE"
+echo "LD_LIBRARY_PATH=$LD_LIBRARY_PATH"
 
 if [ "$DISPLAY" = "" ]; then
     echo "DISPLAY is empty, detecting X11 display..."
@@ -35,7 +43,7 @@ if [ "$DISPLAY" = "" ]; then
 else
     echo "DISPLAY already set to: $DISPLAY"
 fi
-
+a
 export PATH=$PWD/bin:$PATH
 echo "PATH updated: $PATH"
 
