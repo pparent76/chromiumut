@@ -1,10 +1,7 @@
 #!/bin/sh
 
 # Setup logging to temporary location
-LOG_FILE="/tmp/chromiumut_launcher.log"
 
-# Start logging - redirect all output to log file
-exec >> "$LOG_FILE" 2>&1
 
 echo "========================================" 
 echo "Launcher started at $(date)"
@@ -58,7 +55,8 @@ else
 fi
 
 dpioptions="--high-dpi-support=1 --force-device-scale-factor=$scale --grid-unit-px=$GRID_UNIT_PX"
-gpuoptions="--use-gl=egl --enable-gpu-rasterization --enable-zero-copy --ignore-gpu-blocklist --enable-features=UseSkiaRenderer,VaapiVideoDecoder --disable-frame-rate-limit --disable-gpu-vsync --enable-oop-rasterization"
+gpuoptions="--use-gl=egl --simulate-touch-screen-with-mouse --touch-events=enabled --enable-features=OverlayScrollbar,kEnableQuic,OverlayScrollbarFlashAfterAnyScrollUpdate,OverlayScrollbarFlashWhenMouseEnter --enable-smooth-scrolling  --disable-low-res-tiling --enable-gpu --enable-gpu-rasterization --enable-zero-copy  --adaboost --enable-gpu-msemory-buffer-video-frames  --font-render-hinting=none --disable-font-subpixel-positioning --disable-new-content-rendering-timeout --enable-defer-all-script-without-optimization-hints  --enable-gpu-vsync  --enable-oop-rasterization --enable-accelerated-video-decode"
+
 echo "Options configured"
 echo "DPI options: $dpioptions"
 echo "GPU options: $gpuoptions"

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e  # Exit immediately on error
 
 
 
@@ -14,7 +15,7 @@ EXPECTED_HASH=""
 # ======================================
 # STEP 0: Install maliit with crackle
 # ======================================
-echo "[1/6] Cleaning up..."
+echo "[1/8] Cleaning up..."
 
 # ${ROOT}/crackle/crackle update
 # ${ROOT}/crackle/crackle click maliit-inputcontext-gtk3
@@ -23,7 +24,7 @@ echo "[1/6] Cleaning up..."
 # ========================
 # STEP 1: PREPARATION
 # ========================
-echo "[2/6] Cleaning up..."
+echo "[2/8] Cleaning up..."
 rm -rf "$EXTRACT_DIR" "$INSTALL_DIR"
 mkdir -p "$EXTRACT_DIR" "$INSTALL_DIR"
 cp -r ${BUILD_DIR}/usr/lib "$INSTALL_DIR"
@@ -33,7 +34,7 @@ rm -rf $INSTALL_DIR/lib/x86_64-linux-gnu
 # ========================
 # STEP 2: DOWNLOAD THE LATEST Chrome  SNAP USING SNAP
 # ========================
-echo "[3/6] Downloading latest Chrome via snap..."
+echo "[3/8] Downloading latest Chrome via snap..."
 mkdir -p "$EXTRACT_DIR"
 
 
@@ -47,7 +48,7 @@ curl -L -o "$SNAP_FILE" "$DOWNLOAD_URL"
 # ========================
 # STEP 3: EXTRACTION
 # ========================
-echo "[4/6] Extracting .snap package..."
+echo "[4/8] Extracting .snap package..."
 rm -r $EXTRACT_DIR
 echo "Extracting $SNAP_FILE to $EXTRACT_DIR"
 unsquashfs "$SNAP_FILE"
@@ -169,7 +170,7 @@ cp ${BUILD_DIR}/xdg-open/build/xdg-open $INSTALL_DIR/bin/
 
 
 
-echo "[5/6] Copying Chrome to $INSTALL_DIR/usr..."
+echo "[7/8] Copying Chrome to $INSTALL_DIR/usr..."
 mkdir -p "$INSTALL_DIR/usr/"
 cp -r "$EXTRACT_DIR/usr/" "$INSTALL_DIR/" || true
 
@@ -196,7 +197,7 @@ chmod +x $INSTALL_DIR/usr/lib/chromium-browser/chrome_crashpad_handler
 # ========================
 # STEP 5: BUILD THE CLICK PACKAGE
 # ========================
-echo "[6/6] Building click package..."
+echo "[8/8] Building click package..."
 # click build "$INSTALL_DIR"
 
 echo "✅ Preparation done, building the .click package."
