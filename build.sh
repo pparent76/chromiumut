@@ -42,7 +42,7 @@ echo "[3/9] Extracting .snap package..."
 rm -r $EXTRACT_DIR
 echo "Extracting $SNAP_FILE to $EXTRACT_DIR"
 unsquashfs "$SNAP_FILE"
-
+rm $EXTRACT_DIR/usr/bin/xdg-email
 
 # ===================================
 # STEP 4: BUILD THE FAKE xdg-open

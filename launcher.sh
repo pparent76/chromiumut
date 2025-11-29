@@ -51,8 +51,6 @@ fi
 dpioptions="--high-dpi-support=1 --force-device-scale-factor=$scale --grid-unit-px=$GRID_UNIT_PX"
 gpuoptions="--no-sandbox --ignore-gpu-blocklist --use-gl=egl --simulate-touch-screen-with-mouse --touch-events=enabled --disable-frame-rate-limit --enable-features=UseSkiaRenderer,VaapiVideoDecoder,OverlayScrollbar,kEnableQuic,OverlayScrollbarFlashAfterAnyScrollUpdate,OverlayScrollbarFlashWhenMouseEnter --enable-smooth-scrolling  --disable-low-res-tiling --enable-gpu --enable-gpu-rasterization --enable-zero-copy  --adaboost --enable-gpu-msemory-buffer-video-frames  --font-render-hinting=none --disable-font-subpixel-positioning --disable-new-content-rendering-timeout --enable-defer-all-script-without-optimization-hints  --disable-gpu-vsync  --enable-oop-rasterization --enable-accelerated-video-decode"
 
-
-
 echo "Checking for Chrome binary..."
 if [ -f "./usr/lib/chromium-browser/chrome" ]; then
     echo "Chrome found, launching..."
@@ -68,4 +66,4 @@ echo "Launching background dummy app..."
 
 initpwd=$PWD
 echo "Starting Chrome..."
-exec $initpwd/usr/lib/chromium-browser/chrome  $dpioptions $gpuoptions
+exec $initpwd/usr/lib/chromium-browser/chrome --user-agent='Mozilla/5.0 (Linux; Android 15; SM-S931B Build/AP3A.240905.015.A2; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/127.0.6533.103 Mobile Safari/537.36' $dpioptions $gpuoptions  

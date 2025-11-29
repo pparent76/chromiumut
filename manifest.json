@@ -9,7 +9,7 @@
             "desktop":  "chromiumut.desktop"
         }
     },
-    "version": "1.0.0",
+    "version": "142.0.7444",
     "maintainer": "shapa <email@domain.org>",
     "framework" : "ubuntu-touch-24.04-1.x"
 }
