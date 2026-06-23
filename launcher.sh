@@ -58,11 +58,6 @@ else
     echo "ERROR: Chrome binary not found at ./usr/lib/chromium-browser/chrome"
 fi
 
-echo "Launching background dummy app..."
-#Open a dummy qt gui app to release lomiri from its waiting
-#Open a dummy qt gui app to realease lomiri from its waiting
-( utils/sleep.sh; $PWD/bin/xdg-open )&
-
 
 initpwd=$PWD
 echo "Starting Chrome..."
